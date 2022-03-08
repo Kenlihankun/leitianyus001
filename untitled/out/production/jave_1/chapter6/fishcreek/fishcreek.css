@@ -1,0 +1,82 @@
+header, nav, main, footer
+	{display:block;
+	
+	}
+
+*
+body 	{
+			background-color:#6699FF; 
+			color: #D5E3FF; 
+			font-family: Verdana, Arial, sans-serif;
+			background-image: url('./img/gradientblue.jpg');
+	}
+
+h1	{
+		    text-align: center;
+			font-size: 3em;
+			padding: 10px;
+			line-height: 150%;
+			text-shadow: #ccc;
+
+	}
+nav {
+		    font-weight: bold;
+			float: left;
+			width: 150px;
+	}
+nav ul{
+	        list-style-type: none;
+    }
+nav a{
+	        text-decoration: none;
+    }
+nav :link{
+	        color:#3262a3;
+	}
+nav :visited{
+	        color:#69f;
+	}
+nav :hover{
+	        color:#ccc;
+	}
+main {
+		    margin-left: 180px;
+		    padding-right: 20px;
+			padding-bottom: 20px;
+	}
+.category	{
+			font-weight: bold;
+			background-color: #fff;
+			color: #003366;
+			font-size: 1.1em;
+			text-shadow: 1px 1px 1px #667;
+	}
+img	{
+		    border: none;
+	}
+footer {
+			font-size: 0.7em;
+			font-style: italic;
+			text-align: left;
+			padding: 10px;
+			margin-left: 180px;
+	}			
+			
+#wrapper 	{
+			width: 80%;
+			margin-right: auto;
+			margin-left: auto;
+			min-width: 700px;
+			max-width: 1024px;
+			background-color: #fff;
+			color: #006;
+				
+			
+			}
+header {
+			background-color: #006;
+			color: #fff;
+			color: #003366;
+			font-family: serif;
+			
+		}

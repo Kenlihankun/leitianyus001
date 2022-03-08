@@ -1,0 +1,154 @@
+* { box-sizing: border-box; }
+body 	{
+			background-color:#3F2860; 
+			color: #3F2860; 
+			font-family: Verdana, Arial, sans-serif;
+		}
+header {
+			background-color: #9BC1C2;
+			background-image: url(lilyheader.jpg);
+			background-position: right;
+			background-repeat: no-repeat;
+			height: 150px;
+		}
+h1	{
+		padding-top: 50px;
+		padding-left: 2em;
+	}
+nav {
+		font-weight: bold;
+		padding: 1em 1em 1em 1em;
+		float:	left;
+		width:	160px;
+	}
+nav a 	{
+			text-decoration: none;
+			display:	block;
+			text-align:	center;
+			font-weight:	bold;
+			border:	3px outset #cccccc;
+			padding:	1em;
+			margin-bottom:	1em;
+		}
+nav a:link	{	color:	#3f2860;}
+nav a:visited	{	color:	#497777;}
+nav a:hover	{	color:	#a26100;
+				border:	3px inset #333333;}
+nav ul	{	list-style-type:	none;
+			padding-left:	0;}
+main	{
+			padding-right: 2em;
+			padding-left: 2em;
+			display: block;
+			margin-left:	170px;
+			padding-top:	1em;
+		}
+ .floatleft	{	float:	left;
+				margin-right:	4em;}
+ .clear{	clear: both;}
+h2 	{
+		color: #3399CC;
+	}
+dt 	{
+		font-weight: bold;
+	}
+.studio	{
+			font-style: italic;
+		}
+footer {
+			background-color:#9BC1C2;
+			font-size: 0.6em;
+			font-style: italic;
+			text-align: center;
+			padding: 1em 1em 1em 1em;			
+		}
+#wrapper 	{
+				width: 80%;
+				margin-right: auto;
+				margin-left: auto;
+				background-color: #F5F5F5;
+				min-width: 1200px;
+				max-width: 1480px;
+				
+			}
+header, nav, main, footer { display: block; }
+@media only screen and (max-width: 1024px) {
+	nav {
+		float: none;
+		width: auto;
+		padding-top: 0;
+		height: 50px;
+	}
+	nav a{
+		padding: 1em;
+		font-size: 1em;
+		width: 12em;
+		font-weight: bold;
+
+	}
+	nav li{
+		display: inline-block;
+	}
+	nav ul { padding: 0;
+		margin: 0;
+		text-align: center;
+	}
+	main { padding: 2em;
+		margin: 0;
+		font-size: 90%; }
+	body{
+		margin: 0;
+		background-image: none;
+	}
+	#wrapper { width: auto;
+		min-width: 0;
+		margin: 0;
+		box-shadow: none; }
+	header{
+		height: 160px;
+	}
+
+}
+@media only screen and (max-width: 768px){
+	nav a{
+		padding: 1em;
+		font-size: 1em;
+		width: 12em;
+		font-weight: bold;
+	}
+	nav li{
+		padding-left: 50px;
+	}
+	nav ul {
+		margin-top: 15px;
+	}
+
+	.floatleft	{	background-image:	none;
+		margin: 0;padding: 0;height: 0;
+	}
+	#hero{
+		background-image:	none;
+		margin: 0;padding: 0;height: 0;
+	}
+	#heroguitar{
+		background-image:	none;
+		margin: 0;padding: 0;height: 0;
+	}
+	header{
+
+		height: 150px;
+	}
+	header h1{
+		padding-top: 50px;
+	}
+	main{
+		margin-top: 50px;
+	}
+	h1		{
+		padding: 0.5em 0 0 0.5em;
+		margin-right: 0.5em;
+		margin-top: 0;
+		text-align: center;
+	}
+
+}

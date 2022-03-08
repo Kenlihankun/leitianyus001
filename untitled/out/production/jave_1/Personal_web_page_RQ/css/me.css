@@ -1,0 +1,82 @@
+body{
+    background-color: #e2d5cf;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.index{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    top: 5%;
+    right: 5%;
+    background-color: pink;
+    z-index: 999;
+    color: white;
+    opacity: 1;
+}
+.top1 a:hover {
+    color: black;
+    background-color: red;
+    opacity: 1
+}
+.top1{
+    width: 1200px;
+    height: 700px;
+    background-color: black;
+    margin-top: 20px;
+    background-image: url("../img/wamxia.jpg");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.top1 h5{
+    margin-top: 200px;
+    font-size: 15px;
+}
+.top2{
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.card{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 700px;
+    justify-content: space-between;
+}
+.card2{
+    margin-top: 100px;
+}
+.img1{
+    width: 500px;
+}
+.img2{
+    width: 500px;
+}
+.all{
+    background-color: white;
+    width: 1300px;
+    height: 1500px;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.wold1{
+    margin-left: 30px;
+
+}
+.wold2{
+    margin-right: 30px;
+}

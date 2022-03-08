@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/array/array.iml" filepath="$PROJECT_DIR$/array/array.iml" />
+      <module fileurl="file://$PROJECT_DIR$/basic-app/basic-app.iml" filepath="$PROJECT_DIR$/basic-app/basic-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flow_control_app/flow_control_app.iml" filepath="$PROJECT_DIR$/flow_control_app/flow_control_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-app/hello-app.iml" filepath="$PROJECT_DIR$/hello-app/hello-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/homework/homework.iml" filepath="$PROJECT_DIR$/homework/homework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lianxi/lianxi.iml" filepath="$PROJECT_DIR$/lianxi/lianxi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/methon-app/methon-app.iml" filepath="$PROJECT_DIR$/methon-app/methon-app.iml" />
+    </modules>
+  </component>
+</project>

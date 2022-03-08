@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">select your role to play game</div>
+        <div class="cardcontainer">
+            <div class="card">
+                <div class="face face1">
+                    <img class="role1" src="./1.png" alt="">
+                    <h3>kirito</h3>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>introduce</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="face face1">
+                    <img class="role2" src="./2.png" alt="">
+                    <h3>kirito</h3>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>introduce</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="face face1">
+                    <img class="role3" src="./3.png" alt="">
+                    <h3>kirito</h3>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>introduce</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        @font-face {
+            font-family: titlefont;
+            src: url(./CoubraFont-Demo.otf);
+        }
+        .title{
+            font-family: "titlefont";
+            font-size: 60px;
+            margin: 30px;
+            background: linear-gradient(to right, #cc95c0, #dbd4b4, #7aa1d2);
+            -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: #333;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .cardcontainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .role1{
+            width: 220px;
+        }
+        .role2{
+            width: 170px;
+        }
+        .role3{
+            width: 155px;
+        }
+    </style>
+</body>
+</html>

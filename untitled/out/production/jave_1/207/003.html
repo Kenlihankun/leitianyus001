@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+        <style>
+
+
+            body{
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                background: #333;
+                min-height: 100vh;
+            }
+
+
+            .bigcontainer{
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                flex-direction: column;
+            }
+
+
+            h1{
+                background: linear-gradient(to right, #cc95c0, #dbd4b4, #7aa1d2);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-align: center;
+                font-size: 100px;
+                margin: 30px;
+                font-weight: 1500;
+                font-family: cou;
+            }
+
+
+            .container {
+                width: 1000px;
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+            }
+
+
+            .card{
+                position: relative;
+            }
+
+
+            .face{
+                width: 215px;
+                height: 275px;
+                transition: 0.5s;
+            }
+
+
+            .face1{
+                position: relative;
+                background: #333;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1;
+                transform: translateY(100px);
+            }
+
+
+            .face2{
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                box-sizing: border-box;
+                box-shadow: 0 10px 50px rgba(0,0,0,0.8);
+                transform: translateY(-100px);
+                height: 240px;
+            }
+
+
+            .content{
+                opacity: 0.2;
+            }
+
+
+            .card:hover .content{
+                opacity: 1;
+            }
+
+
+            .card:hover .face1{
+                position: relative;
+                background: #333;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1;
+                transform: translateY(0px);
+                transition: 0.75s;
+                opacity: 1;
+            }
+
+
+            .card:hover .face2{
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                box-sizing: border-box;
+                box-shadow: 0 10px 50px rgba(0,0,0,0.8);
+                transform: translateY(0px);
+                transition: 0.75s;
+                opacity: 1;
+            }
+
+
+            h3{
+                margin: 10px 0 0;
+                padding: 0;
+                color: #fff;
+                text-align: center;
+                font-size: 1.5em;
+                font-family: fid;
+            }
+
+
+            p{
+                color: white;
+                font-size: 10px;
+                font-family: fid;
+            }
+
+
+            .role1{
+                width: 215PX;
+            }
+
+
+            .card:hover .role1{
+                width: 250px;
+                transition: 0.5s;
+            }
+
+
+            .role2{
+                width: 215px;
+            }
+
+
+            .card:hover .role2{
+                width: 250px;
+                transition: 0.5s;
+            }
+
+
+            .role3{
+                width: 215px;
+            }
+
+
+            .card:hover .role3{
+                width: 250px;
+                transition: 0.5s;
+            }
+
+
+            @font-face {
+                font-family: cou;
+                src: url("./CoubraFont-Demo.otf");
+            }
+
+
+            @font-face {
+                font-family: fid;
+                src: url("./fiddums family.ttf");
+            }
+
+
+        </style>
+
+
+</head>
+<body>
+
+
+        <div class="bigcontainer">
+            <h1>WHICH IS YOUR LOVE</h1>
+            <div class="container">
+              <div class="card">
+                  <div class="face face1">
+                      <div class="content">
+                          <img src="bai.jpg" class="role1">
+                          <h3 style="height: 40px">BAI</h3>
+                      </div>
+                  </div>
+
+                  <div class="face face2" style="background: linear-gradient(to right, #232526, #414345);">
+                      <div class="content">
+                          <p>
+                              Bai is the younger sister of Kong in the Japanese novel NO GAME NO LIFE.
+                          </p>
+                      </div>
+                  </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="face face1">
+                      <div class="content">
+                          <img src="hudieren1.png" class="role2">
+                          <h3 style="color:brown; height: 50px">
+                              The butterfly endure
+                          </h3>
+                      </div>
+                  </div>
+
+                  <div class="face face2" style="  background: linear-gradient(to right, #ede574, #e1f5c4)">
+                      <div>
+                          <p  class="content" style="color:brown;">
+                              Butterfly Ren, a character from the manga series Ghostkill Blade and its spin-offs, is the worm of ghostkill.
+                          </p>
+                      </div>
+                  </div>
+              </div>
+
+
+              <div class="card">
+                  <div class="face face1">
+                      <div class="content">
+                          <img src="yasina1.png" class="role3">
+                          <h3 style="height: 1px">
+                              Andreas
+                          </h3>
+                      </div>
+                  </div>
+
+                  <div class="face face2" style="  background: linear-gradient(to right, #232526, #414345);">
+                      <div class="content">
+                          <p>
+                              Narunai Nejo is the heroine of the Japanese light novel "Sword Of God Domain" and its derivative works.
+                          </p>
+                      </div>
+                  </div>
+              </div>
+           </div>
+        </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">select your role to play game</div>
+        <div class="cardcontainer">
+            <div class="card">
+                <div class="face face1">
+                    <div class="content"> 
+                    <img class="role1" src="./1.png" alt="">
+                    <h3>kirito</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>introduce</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="face face1">
+                <div class="content">
+                    <img class="role2" src="./2.png" alt="">
+                    <h3>kirito</h3>
+                </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>introduce</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="face face1">
+                <div class="content">
+                    <img class="role3" src="./3.png" alt="">
+                    <h3>kirito</h3>
+                </div>
+                </div>
+                <div class="face face2" style="">
+                    <div class="content">
+                        <p>introduce</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        @font-face {
+            font-family: titlefont;
+            src: url(./CoubraFont-Demo.otf);
+        }
+        .title{
+            font-family: "titlefont";
+            font-size: 60px;
+            margin: 30px;
+            background: linear-gradient(to right, #cc95c0, #dbd4b4, #7aa1d2);
+            -webkit-background-clip: text; 
+             -webkit-text-fill-color: transparent; 
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: #333;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .cardcontainer{
+            width: 800px;
+            display: flex;
+            justify-content: space-between;
+    
+        }
+        .role1{
+            width: 220px;
+        }
+        .role2{
+            width: 170px;
+        }
+        .role3{
+            width: 155px;
+        }
+        .face.face2{
+            background: linear-gradient(to right, #232526, #414345);
+            position: relative;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+            transform: translateY(-100px);
+        }
+
+        .face.face1{
+           
+            position: relative;
+            background: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1;
+            transform: translateY(100px);
+        }
+        .card:hover .face.face1{
+            transform: translateY(0px);
+            transition: 0.75s;
+        }
+        .card:hover .face.face2{
+            transform: translateY(0px);
+            transition: 0.75s;
+        }
+        .face.face1 .content{
+            opacity: 0.2;
+        }
+        .card:hover .face.face1 .content{
+            opacity: 1;
+
+        }
+        
+    </style>
+</body>
+</html>
