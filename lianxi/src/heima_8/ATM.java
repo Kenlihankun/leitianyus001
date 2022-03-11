@@ -12,9 +12,9 @@ public class ATM {
     }
 
     public static void showmain(ArrayList<Account> accounts){
-        System.out.println("---------------欢迎进入首页----------------");
         Scanner sc = new Scanner(System.in);
         while (true) {
+            System.out.println("---------------欢迎进入首页----------------");
             System.out.println("请您输入您想做的操作：");
             System.out.println("1.登录账户");
             System.out.println("2.注册开户");
@@ -23,7 +23,7 @@ public class ATM {
             switch (command){
                 case 1:
                     //登录
-
+                    login(accounts,sc);
                     break;
                 case 2:
                     //开户
@@ -33,6 +33,115 @@ public class ATM {
                     System.out.println("您的命令不被支持");
             }
         }
+    }
+
+    /**
+     * 登录功能
+     * @param accounts 账户对象
+     */
+    public static void login(ArrayList<Account> accounts,Scanner sc){
+        while (true) {
+            System.out.println("-----------------进入登录操作页面----------------");
+            System.out.println("请您输入登录的卡号：");
+            String InCardID = sc.next();
+            //查询账户
+            Account account = chargeAccounts(InCardID,accounts);
+            if (account!=null){
+                //输入密码
+                while (true) {
+                    System.out.println("请输入密码：");
+                    String password = sc.next();
+                    if (account.getPassword().equals(password)){
+                        System.out.println("感谢您"+account.getUsername()+"登录成功！您的卡号是："+account.getCardid());
+                        show(account,accounts,sc);
+                        return;
+                    }else {
+                        System.out.println("输入密码有错！");
+                    }
+                }
+            }else {
+                System.out.println("很抱歉，不存在该卡号！");
+            }
+        }
+    }
+    //查询账户
+    public static Account chargeAccounts(String ID,ArrayList<Account> accounts){
+        //从集合中查询
+        for (int i = 0; i < accounts.size(); i++) {
+            Account account = accounts.get(i);
+            if (account.getCardid().equals(ID)){
+                return account;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 用户操作界面
+     * @param accounts 账户对象
+     */
+    public static void show(Account account,ArrayList<Account> accounts,Scanner sc){
+        while (true) {
+            System.out.println("----------------用户操作界面-------------------");
+            System.out.println("1.查询账户");
+            System.out.println("2.存款");
+            System.out.println("3.取款");
+            System.out.println("4.转账");
+            System.out.println("5.修改密码");
+            System.out.println("6.退出");
+            System.out.println("7.注销账户");
+            int command = sc.nextInt();
+            switch (command){
+                case 1:
+                    //查询账户
+                    showAccount(account);
+                    break;
+                case 2:
+                    //存款
+                    depositMoney(account,sc);
+                    break;
+                case 3:
+                    //取款
+                    drawMoney(account,sc);
+                    break;
+                case 4:
+                    //转账
+                    break;
+                case 5:
+                    //修改密码
+                    break;
+                case 6:
+                    //退出
+                    System.out.println("欢迎下次光临！");
+                    return;
+                case 7:
+                    //注销账户
+                    break;
+                default:
+                    System.out.println("您的命令输入有误！");
+            }
+        }
+    }
+
+    //1.查询账户
+    private static void showAccount(Account account) {
+        System.out.println("-----------------当前账户详细-----------------");
+        System.out.println("卡号"+account.getCardid());
+        System.out.println("姓名"+account.getUsername());
+        System.out.println("余额"+account.getMoney());
+        System.out.println("当此限额"+account.getQuotamoney());
+    }
+    //2.存款
+    private static void depositMoney(Account account,Scanner sc) {
+        System.out.println("-----------------存钱操作-----------------");
+        System.out.println("请您输入本次存款金额：");
+        double Money = sc.nextDouble();
+        account.setMoney(account.getMoney()+Money);
+        System.out.println("存款完成！");
+        showAccount(account);
+    }
+    //3.取款
+    private static void drawMoney(Account account, Scanner sc) {
     }
 
     /**
