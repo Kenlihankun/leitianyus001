@@ -1,6 +1,10 @@
 package major.bean;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Movie {
     private String name;
@@ -10,7 +14,7 @@ public class Movie {
     private double price;
     private int number;
     private Date startTime;
-
+    private List<BigDecimal> listCode = new ArrayList<>();
     public Movie() {
     }
 
@@ -22,6 +26,31 @@ public class Movie {
         this.price = price;
         this.number = number;
         this.startTime = startTime;
+    }
+
+    public List<BigDecimal> getListCode() {
+        return listCode;
+    }
+
+    public void setListCode(List<BigDecimal> listCode) {
+        this.listCode = listCode;
+    }
+
+    public void setListCodeByCustomer(BigDecimal dou) {
+        this.listCode.add(dou);
+        codeMath();
+    }
+
+    public void codeMath(){
+        int mum = 0;
+        BigDecimal dou = BigDecimal.valueOf(0);
+        for (BigDecimal bigDecimal : listCode) {
+            dou = dou.add(bigDecimal);
+            mum+=1;
+        }
+        BigDecimal mumber = BigDecimal.valueOf(mum);
+        dou = dou.divide(mumber,2, RoundingMode.UP);
+        this.score=dou.doubleValue();
     }
 
     public String getName() {

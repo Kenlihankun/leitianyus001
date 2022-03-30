@@ -7,6 +7,7 @@ import major.bean.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -66,7 +67,6 @@ public class MovieSystem {
     public static final Scanner SC = new Scanner(System.in);
     public static User users;
     public static SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-
     private static final Logger LOGGER = LoggerFactory.getLogger("MovieSystem.class");
 
     public static void main(String[] args) {
@@ -156,7 +156,6 @@ public class MovieSystem {
                 case "3":
                     // 评分功能
                     scoreMovie();
-                    showAllMovies();
                     break;
                 case "4":
                     // 购票功能
@@ -174,20 +173,173 @@ public class MovieSystem {
     评分功能
      */
     private static void scoreMovie() {
+        if (showBuyMovie()){
+            while (true) {
+                System.out.println("请问想评价哪部电影：");
+                String customerMovieCodeName=SC.nextLine();
+                Movie movie = searchMovie(customerMovieCodeName);
+                if (movie!=null){
+                    System.out.println("请输入评分：");
+                    String customerWriteCode = SC.nextLine();
+                    movie.setListCodeByCustomer(BigDecimal.valueOf(Double.valueOf(customerWriteCode)));
+                    return;
+                }else {
+                    System.out.println("无该影片");
+                    System.out.println("是否继续评价（y/n）");
+                    String command = SC.nextLine();
+                    switch (command){
+                        case "y":break;
+                        default:return;
+                    }
+                }
+            }
+        }
+        return;
+    }
+    /*
+    从用户购买信息中返回电影对象
+     */
+    private static Movie searchMovie(String MovieName){
+        Customer customer = (Customer) users;
+        Set<Movie> list = (Set<Movie>) ((Customer) users).getMovieBooleanMap().keySet();
+        for (Movie movie : list) {
+            if (movie.getName().equals(MovieName)){
+                return movie;
+            }
+        }
+        return null;
+    }
+    /*
+    展示所有已购买信息
+     */
+    private static Boolean showBuyMovie() {
+        Customer customer = (Customer) users;
+        if (customer.getMovieBooleanMap()==null||customer.getMovieBooleanMap().size()==0){
+            System.out.println("无购买信息");return false;
+        }
+        System.out.println("\t\t\t片名\t\t\t主演\t\t时长\t\t评分\t\t票价\t\t放映时间\t\t我的评分");
+        customer.getMovieBooleanMap().forEach((movie, Double) ->
+                System.out.println("\t\t\t"+movie.getName() + "\t\t\t" + movie.getActor() + "\t\t" + movie.getTime()
+                        + "\t\t" + movie.getScore() + "\t\t" + movie.getPrice() + "\t\t"
+                        + sdf.format(movie.getStartTime())+"\t\t"+Double)
+                );
+        return true;
+
+
 
     }
     /*
     展示全部排片信息
      */
     private static void showAllMovies() {
-
+        ALL_MOVIES.forEach((business, movies) -> {
+            System.out.println(business.getShopName() + "\t\t电话：" + business.getPhone()
+                    + "\t\t地址:" + business.getAddress() );
+            System.out.println("\t\t\t片名\t\t\t主演\t\t时长\t\t评分\t\t票价\t\t余票数量\t\t放映时间");
+                for (Movie movie : movies) {
+                    System.out.println("\t\t\t"+movie.getName() + "\t\t\t" + movie.getActor() + "\t\t" + movie.getTime()
+                            + "\t\t" + movie.getScore() + "\t\t" + movie.getPrice() + "\t\t" + movie.getNumber() + "\t\t"
+                            + sdf.format(movie.getStartTime()));
+                }
+        });
     }
     /*
     购票功能
      */
     private static void buyMovie() {
-
+        showAllMovies();
+        System.out.println("======================购票系统=========================");
+        while (true) {
+            System.out.println("输入店铺名称");
+            String shopName = SC.nextLine();
+            Business business = getBusinessByName(shopName);
+            if (business==null){
+                System.out.println("无该店铺");
+            }else {
+                List<Movie> list = ALL_MOVIES.get(business);
+                if (list.size()>0){
+                    while (true) {
+                        System.out.println("输入电影名称：");
+                        String movieName = SC.nextLine();
+                        Movie movie = geiMovieByShopName(movieName,list);
+                        if (movie!=null){
+                            while (true) {
+                                System.out.println("输入票数：");
+                                String mum = SC.nextLine();
+                                int integer = Integer.valueOf(mum);
+                                if (movie.getNumber()>=integer){
+                                    double money = BigDecimal.valueOf(integer).multiply(BigDecimal.valueOf(movie.getPrice())).doubleValue();
+                                    if (money>users.getMoney()){
+                                        System.out.println("钱不够");
+                                        System.out.println("是否继续购买（y/n）");
+                                        String command = SC.nextLine();
+                                        switch (command){
+                                            case "y":break;
+                                            default:return;
+                                        }
+                                    }else {
+                                        System.out.println("成功购买！");
+                                        users.setMoney(users.getMoney()-money);
+                                        business.setMoney(business.getMoney()+money);
+                                        movie.setNumber(movie.getNumber()-integer);
+                                        Customer userCode = (Customer) users;
+                                        userCode.setMovieBooleanMap(movie,null);
+                                        return;
+                                    }
+                                }else {
+                                    System.out.println("没那么多票");
+                                    System.out.println("是否继续购买（y/n）");
+                                    String command = SC.nextLine();
+                                    switch (command){
+                                        case "y":break;
+                                        default:return;
+                                    }
+                                }
+                            }
+                        }else {
+                            System.out.println("无此电影");
+                        }
+                    }
+                }else {
+                    System.out.println("无片");
+                    System.out.println("是否继续购买（y/n）");
+                    String command = SC.nextLine();
+                    switch (command){
+                        case "y":break;
+                        default:return;
+                    }
+                }
+            }
+        }
     }
+    /*
+    遍历并返回电影对象
+     */
+    private static Movie geiMovieByShopName(String movieName, List<Movie> list){
+        for (Movie movie : list) {
+            if (movie.getName().equals(movieName)){
+                return movie;
+            }
+        }
+        return null;
+    }
+    /*
+    遍历并返回商家
+     */
+    private static Business getBusinessByName(String shopName){
+        Set<Business> businesses = ALL_MOVIES.keySet();
+        for (Business business : businesses) {
+            if (business.getShopName().equals(shopName)){
+                return business;
+            }
+        }
+        return null;
+    }
+
+
+
+
+
 
     /*
     商家主页
@@ -353,7 +505,7 @@ public class MovieSystem {
     /*
     遍历并返回电影对象
      */
-    public static Movie getMovieByName(String movieName){
+    private static Movie getMovieByName(String movieName){
         Business business = (Business) users;
         List<Movie> movies = ALL_MOVIES.get(business);
         for (Movie movie : movies) {
