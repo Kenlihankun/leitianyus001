@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="com.leitianyu.Mapper.BrandMapper">
+    
+    <resultMap id="BrandResultMap" type="brand">
+        <result column="brand_name" property="brandName"/>
+        <result column="company_name" property="companyName"/>
+    </resultMap>
+
+
+    <select id="selectALL" resultMap="BrandResultMap">
+        select *
+        from tb_Brand;
+    </select>
+    <select id="SelectById" parameterType="integer" resultMap="BrandResultMap">
+        select *
+        from tb_Brand where id=#{id};
+    </select>
+    <select id="selectByCondition" resultMap="BrandResultMap">
+        select *
+        from tb_Brand
+        <where><if test="status!=null">and status = #{status}</if>
+          <if test="companyName!=null and companyName!=''">and company_name like #{companyName}</if>
+         <if test="brandName!=null and brandName!=''">and brand_name like #{brandName}</if></where>;
+    </select>
+
+
+    <select id="selectByConditionSingle" resultMap="BrandResultMap">
+        select *
+        from tb_Brand
+        <where>
+        <choose>
+            <when test="status != null">
+                status = #{status}
+            </when>
+            <when test="companyName != null and companyName != '' ">
+                company_name like #{companyName}
+            </when>
+            <when test="brandName != null and brandName != ''">
+                brand_name like #{brandName}
+            </when>
+        </choose>;
+        </where>
+    </select>
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_brand (brand_name, company_name, ordered, description, status)
+        values (#{brandName}, #{companyName}, #{ordered}, #{description}, #{status});
+    </insert>
+</mapper>
